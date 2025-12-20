@@ -95,6 +95,7 @@ const login = async (req, res) => {
     }
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
     const options = {
+      maxAge : 3600,
       httpOnly: false,
       sameSite : 'None',
       secure: true
