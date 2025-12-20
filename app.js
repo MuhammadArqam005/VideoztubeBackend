@@ -12,7 +12,7 @@ import cloudinaryRouter from "./routes/cloudinary.route.js";
 
 const app = express()
 const port = 3000;
-connectToMongo()
+await connectToMongo()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
