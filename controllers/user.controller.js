@@ -97,6 +97,7 @@ const login = async (req, res) => {
     const options = {
       httpOnly: false,
       sameSite : 'None',
+      maxAge : 3600,
       secure: true
     }
     const loginUser = await User.findById(user._id).select("-password -refreshToken")
