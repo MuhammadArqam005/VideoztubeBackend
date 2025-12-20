@@ -95,7 +95,6 @@ const login = async (req, res) => {
     }
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
     const options = {
-      maxAge : 3600,
       httpOnly: false,
       sameSite : 'None',
       secure: true
@@ -297,7 +296,8 @@ const changePassword = async (req, res) => {
 
     const options = {
       httpOnly: false,
-      secure: false
+      sameSite : 'None',
+      secure: true
     }
 
     res.status(200).cookie("accesstoken", accessToken, options).cookie("refreshtoken", refreshToken, options).cookie("loginuser", updatedUser, options).json({
