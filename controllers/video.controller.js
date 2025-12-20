@@ -280,7 +280,7 @@ const deleteVideo = async (req, res) => {
             return res.status(404).json("not Possible")
         }
 
-        return res.status(200).json("ok")
+        return res.status(200).json(video)
 
     }
     catch (err) {
