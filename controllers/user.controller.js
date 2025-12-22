@@ -95,9 +95,10 @@ const login = async (req, res) => {
     }
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
     const options = {
-      httpOnly: false,
+      httpOnly: true,
       sameSite : 'None',
-      secure: true
+      secure: true,
+      maxAge : 3600
     }
     const loginUser = await User.findById(user._id).select("-password -refreshToken")
     res.status(200).cookie("accesstoken", accessToken, options).cookie("refreshtoken", refreshToken, options).cookie("loginuser", loginUser, options).json({
