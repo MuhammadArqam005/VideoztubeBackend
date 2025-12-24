@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const mongoURI = "mongodb+srv://arqamahmed005_db_user:mongo005@cluster0.lugyapm.mongodb.net/Videotube"
+const mongoURI = process.env.MONGO_URI
 
 const connectToMongo = async ()=>{
     try{
